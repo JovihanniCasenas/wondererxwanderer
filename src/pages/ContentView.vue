@@ -11,13 +11,12 @@ const route = useRoute()
 let content = ref(EmptyContent)
 
 const getContentStr = async () => {
-    // const file = (await import(`/public${route.params.id}?raw`)).default
-    const file = (await import(`/src${route.params.id}?raw`)).default
+    const importPath = `/src/content/${route.params.id.slice(9)}?raw`
+    const file = (await import(importPath)).default
     const match = file.match(/^([^\n]+)\n(\d{8})([\s\S]*)/m)
     content.value.title = match[1]. trim()
     content.value.published = formatDate(parseDate(match[2].trim()))
     content.value.body = match[3].trim()
-    console.log(match)
 }
 
 onMounted(async () => {
