@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 import MarkdownContent from '@/components/MarkdownContent.vue'
 import EmptyContent from '@/types/content.js'
@@ -10,17 +10,17 @@ const route = useRoute()
 
 let content = ref(EmptyContent)
 
-const getContentStr = async () => {
-    const importPath = `/src/content/${route.params.id.slice(9)}?raw`
-    const file = (await import(importPath)).default
+const getContentStr = async (path) => {
+    const resp = await fetch(path)
+    const file = await resp.text()
     const match = file.match(/^([^\n]+)\n(\d{8})([\s\S]*)/m)
     content.value.title = match[1]. trim()
     content.value.published = formatDate(parseDate(match[2].trim()))
     content.value.body = match[3].trim()
 }
 
-onMounted(async () => {
-    await getContentStr()
+onBeforeMount(async () => {
+    await getContentStr(route.params.id.slice(1))
 })
 </script>
 
