@@ -20,7 +20,7 @@ const getContentStr = async (path) => {
 }
 
 onBeforeMount(async () => {
-    await getContentStr(route.params.id.slice(1))
+    await getContentStr(route.params.id)
 })
 </script>
 
