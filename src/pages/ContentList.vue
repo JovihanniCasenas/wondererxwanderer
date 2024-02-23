@@ -13,7 +13,6 @@ let mdContents = ref([Content])
 const getContentStr = async (path, raw) => {
     let content = { ...EmptyContent }
     content.key = path
-    console.log(raw)
     const match = raw.match(/^([^\n]+)\n(\d{8})([\s\S]{0,150})/m)
     content.title = match[1]. trim()
     content.published = match[2].trim()
