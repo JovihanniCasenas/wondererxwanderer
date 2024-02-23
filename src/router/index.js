@@ -5,6 +5,7 @@ const router = createRouter({
     routes: [
         {
             path: '/home',
+            alias: '/',
             name: 'home',
             meta: { layout: 'home' },
             components: {
