@@ -16,6 +16,11 @@ import { createApp } from 'vue'
 // Styles
 import '@/assets/styles/main.css'
 
+// md Content
+import { mdInit } from '@/helper/paths.js'
+
+mdInit()
+
 const app = createApp(App)
 
 registerPlugins(app)

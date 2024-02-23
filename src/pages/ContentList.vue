@@ -4,18 +4,17 @@ import ContentCard from '@/components/ContentCard.vue'
 import Content from '@/types/content.js'
 import EmptyContent from '@/types/content.js'
 import { sortAndFormatDates } from '@/helper/dateformatter.js'
-import { mdPaths } from '@/helper/paths'
+import { mdPaths, mdRaw } from '@/helper/paths'
 
 let isLoading = ref(true)
 
 let mdContents = ref([Content])
 
-const getContentStr = async (path) => {
+const getContentStr = async (path, raw) => {
     let content = { ...EmptyContent }
-    const resp = await fetch(path)
-    const respTxt = await resp.text()
     content.key = path
-    const match = respTxt.match(/^([^\n]+)\n(\d{8})([\s\S]{0,150})/m)
+    console.log(raw)
+    const match = raw.match(/^([^\n]+)\n(\d{8})([\s\S]{0,150})/m)
     content.title = match[1]. trim()
     content.published = match[2].trim()
     content.body = match[3].trim() + '...'
@@ -25,8 +24,8 @@ const getContentStr = async (path) => {
 
 const getContents = async () => {
     let out = []
-    for (const path of mdPaths) {
-        out.push(await getContentStr(path))
+    for (let i = 0; i < mdPaths.length; i++) {
+        out.push(await getContentStr(mdPaths[i], mdRaw[i]))
     }
     isLoading.value = false
     return out

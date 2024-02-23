@@ -5,14 +5,14 @@ import MarkdownContent from '@/components/MarkdownContent.vue'
 import EmptyContent from '@/types/content.js'
 import colors from '@/assets/styles/colors.js'
 import { formatDate, parseDate } from '@/helper/dateformatter'
+import { mdContentView } from '@/helper/paths'
 
 const route = useRoute()
 
 let content = ref(EmptyContent)
 
 const getContentStr = async (path) => {
-    const resp = await fetch(path)
-    const file = await resp.text()
+    const file = mdContentView[path]
     const match = file.match(/^([^\n]+)\n(\d{8})([\s\S]*)/m)
     content.value.title = match[1]. trim()
     content.value.published = formatDate(parseDate(match[2].trim()))
