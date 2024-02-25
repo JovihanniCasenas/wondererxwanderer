@@ -15,12 +15,19 @@ const clipBody = (body) => {
 </script>
 
 <template>
-    <v-sheet v-if="appState.isLoading">
-        <v-progress-circular model-value="20" indeterminate :color="colors.primary"></v-progress-circular>
-    </v-sheet>
+    <v-overlay
+    :model-value="appState.isLoading"
+    class="align-center justify-center"
+    :contained="true"
+    :persistent="true"
+    >
+        <v-progress-circular 
+        size="60" 
+        indeterminate 
+        :color="colors.primary"></v-progress-circular>
+    </v-overlay>
 
     <ContentCard
-    v-else
     v-for="md in contentStore.contents"
     :key="md.key"
     :id="md.key"
