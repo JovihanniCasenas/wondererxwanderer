@@ -10,6 +10,7 @@
     "@mdi/font": "7.0.96",
     "date-fns": "^3.3.1",
     "markdown-it": "^14.0.0",
+    "pinia": "^2.1.7",
     "roboto-fontface": "*",
     "vue": "^3.3.0",
     "vue-markdown": "^2.2.4",

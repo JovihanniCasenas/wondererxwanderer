@@ -1,47 +1,31 @@
 <script setup>
-import { onMounted, ref } from 'vue'
 import ContentCard from '@/components/ContentCard.vue'
-import Content from '@/types/content.js'
-import EmptyContent from '@/types/content.js'
-import { sortAndFormatDates } from '@/helper/dateformatter.js'
-import { mdPaths, mdRaw } from '@/helper/paths'
+import { useAppStateStore } from '@/stores/appState'
+import colors from '@/assets/styles/colors'
+import { useContentStore } from '@/stores/content'
 
-let isLoading = ref(true)
+const appState = useAppStateStore()
+const contentStore = useContentStore()
 
-let mdContents = ref([Content])
-
-const getContentStr = async (path, raw) => {
-    let content = { ...EmptyContent }
-    content.key = path
-    const match = raw.match(/^([^\n]+)\n(\d{8})([\s\S]{0,150})/m)
-    content.title = match[1]. trim()
-    content.published = match[2].trim()
-    content.body = match[3].trim() + '...'
-    
-    return content
+const clipBody = (body) => {
+    let clipped = body.slice(0, 150)
+    if(body.length > 150) return `${clipped}...`
+    return clipped
 }
-
-const getContents = async () => {
-    let out = []
-    for (let i = 0; i < mdPaths.length; i++) {
-        out.push(await getContentStr(mdPaths[i], mdRaw[i]))
-    }
-    isLoading.value = false
-    return out
-}
- onMounted(async () => {
-    mdContents.value = await getContents()
-    mdContents.value = sortAndFormatDates(mdContents.value)
- })
 </script>
 
 <template>
+    <v-sheet v-if="appState.isLoading">
+        <v-progress-circular model-value="20" indeterminate :color="colors.primary"></v-progress-circular>
+    </v-sheet>
+
     <ContentCard
-    v-for="md in mdContents"
+    v-else
+    v-for="md in contentStore.contents"
     :key="md.key"
     :id="md.key"
     :title="md.title"
     :published="md.published"
-    :md-content="md.body"
+    :md-content="clipBody(md.body)"
     ></ContentCard>
 </template>

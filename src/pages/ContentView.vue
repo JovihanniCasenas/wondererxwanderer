@@ -1,26 +1,16 @@
 <script setup>
-import { ref, onBeforeMount } from 'vue'
+import { onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 import MarkdownContent from '@/components/MarkdownContent.vue'
-import EmptyContent from '@/types/content.js'
 import colors from '@/assets/styles/colors.js'
-import { formatDate, parseDate } from '@/helper/dateformatter'
-import { mdContentView } from '@/helper/paths'
+import { useContentStore } from '@/stores/content'
 
 const route = useRoute()
 
-let content = ref(EmptyContent)
-
-const getContentStr = async (path) => {
-    const file = mdContentView[path]
-    const match = file.match(/^([^\n]+)\n(\d{8})([\s\S]*)/m)
-    content.value.title = match[1]. trim()
-    content.value.published = formatDate(parseDate(match[2].trim()))
-    content.value.body = match[3].trim()
-}
+const contentStore = useContentStore()
 
 onBeforeMount(async () => {
-    await getContentStr(route.params.id)
+    contentStore.getSelectedContent(route.params.id)
 })
 </script>
 
@@ -33,20 +23,20 @@ onBeforeMount(async () => {
         class="content-title"
         :style="{ '--content-title-color': colors.primary }"
         >
-            {{ content.title }}
+            {{ contentStore.selectedContent.title }}
         </v-card-title>
         <v-card-item class="content-body">
             <p 
             class="content-timestamp" 
             :style="{ '--timestamp-color': colors.primary }"
             >
-                Published: {{ content.published }}
+                Published: {{ contentStore.selectedContent.published }}
             </p>
 
             <hr class="divider" :style="{ '--divider-color': colors.secondary }">
 
             <MarkdownContent
-            :source="content.body"
+            :source="contentStore.selectedContent.body"
             />
         </v-card-item>
     </v-card>
