@@ -13,12 +13,6 @@ export const useContentStore = defineStore('content', () => {
 
     const createEmptyContent = () => {return { ...EmptyContent }}
 
-    const mdPaths = [
-        '/src/assets/content/fall-of-the-great-wall.md',
-        '/src/assets/content/fear-the-mirrors.md',
-        '/src/assets/content/reduced-to-ashes.md'
-    ]
-
     const contentByParts = (raw, content, key) => {
         const match = raw.match(/^([^\n]+)\n(\d{8})([\s\S]*)/m)
         content.key = key
@@ -50,6 +44,13 @@ export const useContentStore = defineStore('content', () => {
                 'reduced-to-ashes.md'
             )
         )
+        contents.value.push(
+            contentByParts(
+                (await import('@/assets/content/losing-dipper.md?raw')).default, 
+                createEmptyContent(),
+                'losing-dipper.md'
+            )
+        )
 
         contents.value = sortAndFormatDates(contents.value)
     }
@@ -68,7 +69,6 @@ export const useContentStore = defineStore('content', () => {
         doneInit,
         selectedContent,
         contents,
-        mdPaths,
         init,
         getSelectedContent
     }
