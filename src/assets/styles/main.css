@@ -25,19 +25,19 @@
     margin-right: 50px;
     margin-top: 50px;
     margin-bottom: 30px;
-    font-size: 40px;
+    font-size: 1vh;
     text-align: center;
     color: var(--content-title-color);
 }
 
 .content-body {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 21px;
+    font-size: 4vh;
     text-align: justify;
-    line-height: 50px;
+    line-height: 10vh;
 }
 
 .content-timestamp {
@@ -48,7 +48,7 @@
 }
 
 .content-card {
-    margin: 50px;
+    margin: 5%;
     /* margin-left: 50px;
     margin-right: 50px;
     margin-top: 30px; */
