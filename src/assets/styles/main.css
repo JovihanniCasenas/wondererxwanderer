@@ -10,14 +10,22 @@
     letter-spacing: 3px;
 }
 
+.app-header-title-mobile {
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
 .logo {
-    max-height: 38px;
-    max-width: 38px;
+    max-height: 40px;
+    max-width: 40px;
     margin: 5px;
 }
 
 .content-wrapper {
     margin: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .content-title {
@@ -25,7 +33,7 @@
     margin-right: 50px;
     margin-top: 50px;
     margin-bottom: 30px;
-    font-size: 1vh;
+    font-size: 50px;
     text-align: center;
     color: var(--content-title-color);
 }
@@ -33,11 +41,19 @@
 .content-body {
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 4vh;
-    text-align: justify;
-    line-height: 10vh;
+    font-size: 21px;
+    text-align: left;
+    line-height: 40px;
+}
+
+.content-body-mobile {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 30px;
 }
 
 .content-timestamp {
@@ -48,10 +64,7 @@
 }
 
 .content-card {
-    margin: 5%;
-    /* margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 30px; */
+    margin: 50px;
 }
 
 .content-card-title {
@@ -65,8 +78,14 @@
     font-size: 21px;
 }
 
+.content-card-body-mobile {
+    margin: 20px;
+    text-align: justify;
+    font-size: 16px;
+}
+
 .line-spacer {
-    line-height: 50px;
+    line-height: 10px;
 }
 
 .divider {
