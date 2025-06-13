@@ -26,7 +26,6 @@ const onBack = () => {
 const computeShowBtn = () => {
     const cardH = height.value + 10 + 36 + 70
     const screenH = window.innerHeight
-    console.log('jovihanni', height.value, cardH, screenH)
     showBottomBtn.value = cardH > screenH
 }
 

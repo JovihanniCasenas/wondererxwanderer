@@ -27,28 +27,35 @@ export const useContentStore = defineStore('content', () => {
             contentByParts(
                 (await import('@/assets/content/fall-of-the-great-wall.md?raw')).default, 
                 createEmptyContent(),
-                'fall-of-the-great-wall.md'
+                'fall-of-the-great-wall'
             )
         )
         contents.value.push(
             contentByParts(
                 (await import('@/assets/content/fear-the-mirrors.md?raw')).default, 
                 createEmptyContent(),
-                'fear-the-mirrors.md'
+                'fear-the-mirrors'
             )
         )
         contents.value.push(
             contentByParts(
                 (await import('@/assets/content/reduced-to-ashes.md?raw')).default, 
                 createEmptyContent(),
-                'reduced-to-ashes.md'
+                'reduced-to-ashes'
             )
         )
         contents.value.push(
             contentByParts(
                 (await import('@/assets/content/losing-dipper.md?raw')).default, 
                 createEmptyContent(),
-                'losing-dipper.md'
+                'losing-dipper'
+            )
+        )
+        contents.value.push(
+            contentByParts(
+                (await import('@/assets/content/on-the-shoes-i-have-not-lived.md?raw')).default, 
+                createEmptyContent(),
+                'on-the-shoes-i-have-not-lived'
             )
         )
 
