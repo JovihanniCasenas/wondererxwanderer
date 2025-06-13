@@ -1,0 +1,7 @@
+On the Shoes I Have not Lived
+20250613
+&nbsp;&nbsp;&nbsp;&nbsp;They say you need to be in someone’s shoes to understand them. Click. Clack. Flip. Shuffle. Every flip of a page was virtually a life I felt I have lived. I’ve worn fancy shoes, sneakers, platforms, kitten heels, worn out boots, you name it. In every life branches out different scenarios like a film reel in my head.
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Experience is life’s greatest teacher, as they say. For someone who stayed at home for a big chunk of my early years, the only way out was to read. I consumed stories like they were some sort of elixir to keep me going. Failure was such a horror that I wanted to see how people of different backgrounds would react to certain situations and internalise them as if my mind was a hard drive. It did help me carve out who I am today. So no, I am not just Jovihanni. I am an amalgamation of all the stories that lived through me, of all the characters I watched suffer, and at times, succeed. Readers not only carry their lives, they carry the lives of those that were cut short because the pages have run out.
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Turns out, the problem is not about the shoe fitting your foot. Your flesh and bones will not leave the same dent. It will never break in like how the characters did. Still, it felt as if you lived a life you did not, even just over the pages of a book. So, what do you think am I passionate about? Is it reading, writing, or a tango of the two?
